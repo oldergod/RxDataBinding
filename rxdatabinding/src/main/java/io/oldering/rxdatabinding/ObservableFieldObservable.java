@@ -7,20 +7,20 @@ import io.reactivex.android.MainThreadDisposable;
 
 import static io.oldering.rxdatabinding.internal.Preconditions.checkMainThread;
 
-public class ObservableFieldObservable<T> extends Observable<T> {
-  private final ObservableField<T> field;
+final class ObservableFieldObservable<T> extends Observable<T> {
+  private final ObservableField<T> observableField;
 
-  ObservableFieldObservable(ObservableField<T> field) {
-    this.field = field;
+  ObservableFieldObservable(ObservableField<T> observableField) {
+    this.observableField = observableField;
   }
 
   @Override protected void subscribeActual(Observer<? super T> observer) {
     if (!checkMainThread(observer)) {
       return;
     }
-    ObservableFieldObservable.Listener listener = new Listener(field, observer);
+    ObservableFieldObservable.Listener listener = new Listener(observableField, observer);
     observer.onSubscribe(listener);
-    field.addOnPropertyChangedCallback(listener.onPropertyChangedCallback);
+    observableField.addOnPropertyChangedCallback(listener.onPropertyChangedCallback);
   }
 
   private final class Listener extends MainThreadDisposable {
