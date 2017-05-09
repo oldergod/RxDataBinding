@@ -18,7 +18,7 @@ final class ObservableFieldObservable<T> extends Observable<T> {
     if (!checkMainThread(observer)) {
       return;
     }
-    ObservableFieldObservable.Listener listener = new Listener(observableField, observer);
+    Listener listener = new Listener(observableField, observer);
     observer.onSubscribe(listener);
     observableField.addOnPropertyChangedCallback(listener.onPropertyChangedCallback);
   }

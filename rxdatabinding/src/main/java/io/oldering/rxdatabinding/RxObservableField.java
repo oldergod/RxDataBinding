@@ -13,9 +13,9 @@ import static io.oldering.rxdatabinding.internal.Preconditions.checkNotNull;
  */
 public final class RxObservableField<T> {
   /**
-   * Create an observable of property changed events on {@code observableInt}.
+   * Create an observable of property changed events on {@code observableField}.
    * <p>
-   * <em>Warning:</em> The created observable keeps a strong reference to {@code observableInt}.
+   * <em>Warning:</em> The created observable keeps a strong reference to {@code observableField}.
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
