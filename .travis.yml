@@ -1,40 +1,34 @@
 language: android
-
 android:
   components:
-    - tools
-    - platform-tools
-    - build-tools-25.0.2
-    - android-25
-    - extra-android-m2repository
-    - sys-img-armeabi-v7a-android-18
-
+  - tools
+  - platform-tools
+  - build-tools-25.0.2
+  - android-25
+  - extra-android-m2repository
+  - sys-img-armeabi-v7a-android-18
 jdk:
-  - oraclejdk8
-
+- oraclejdk8
 before_script:
-  # Create and start an emulator for instrumentation tests.
-  - echo no | android create avd --force -n test -t android-18 --abi armeabi-v7a
-  - emulator -avd test -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82
-
+- echo no | android create avd --force -n test -t android-18 --abi armeabi-v7a
+- emulator -avd test -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82
 script:
-  - ./gradlew ":$MODULE:build" ":$MODULE:connectedCheck"
-
+- ./gradlew ":$MODULE:build" ":$MODULE:connectedCheck"
 env:
   matrix:
-    - MODULE=rxdatabinding
-
+  - MODULE=rxdatabinding
 branches:
   except:
-    - gh-pages
-
+  - gh-pages
 notifications:
   email: false
-
+  slack:
+    secure: ofQ2RGWPrVJ25q5ZP6BQMO9+Kuzx7cySUM+OmVDXI+dxPa6TTvXoJ29EIBjTu7gU/Z4FOlmbaBNmzjF6KLmZ8ikjQzLzxqyrimFs+/0oRknlbc/3OFQmbab7tfBa3QV7G7ILu7gOWt5AYH+bQ5lwRAMU4W3DnXyvyMhk+9M4oVhB/jX9Uo67iMmYj1Fmr3y4NpolhNfYS6wHN5htz6leTrZiADCOZa2fePjYxcn8UVm8KNU9xXXx43gYVI8c/VCDpxwYGay7mlBFoZ9ZwSdspYi5InjVEXva8C3+cgRKRRdma2fw6uG9oyCQy3CCQreU+lNFkL+hOI9tX8AEAf979sUcCfyw3dvC3P5fCyd+NP1pO9yY32VdbLiTTRVjwBSjnW346JcTMDR1E2b9kbGStp/KcYnuFu/VeOJ86Iubcw568wYDU7kHqyULaRXkcntUu24Cx65sIgxLAeVz51WNisSfQQI3g5JwzfP9ZjpmWR/o0jOEKkwaT7mk9O50lIEPKB8E09tCTgHJJiznsV2f7EI8UoIQrZSp++QZpy6aDA/zANev2ZJUMnWZlEn21YwhoUWewnjpX5ETAEcQ58NvTo5V6+1lMtS5uSj8n1UvzYXL4+/Omsxi836Yg3qi5RdmKiK240ipBaQYHFEsQrp+jr/i5Y7BWXkGhn4cQgr3lto=
+    on_success: change
+    on_failure: always
 sudo: false
-
 cache:
   directories:
-    - $HOME/.gradle
+  - $HOME/.gradle
