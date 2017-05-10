@@ -17,7 +17,6 @@ public class RxObservableByteTest {
 
   private final ObservableByte observableByte = new ObservableByte();
 
-  @SuppressWarnings("ConstantConditions") //
   @Test @UiThreadTest public void propertyChangeEvents() {
     byte value = 1;
 
