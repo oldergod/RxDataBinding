@@ -9,7 +9,7 @@ import io.reactivex.android.MainThreadDisposable;
 import static io.oldering.rxdatabinding.internal.Preconditions.checkMainThread;
 
 final class ObservableArrayMapObservable<K, V>
-    extends Observable<ObservableArrayMapMapChangedEvent<K, V>> {
+    extends Observable<ObservableArrayMapOnMapChangedEvent<K, V>> {
   private final ObservableArrayMap<K, V> observableArrayMap;
 
   ObservableArrayMapObservable(ObservableArrayMap<K, V> observableArrayMap) {
@@ -17,7 +17,7 @@ final class ObservableArrayMapObservable<K, V>
   }
 
   @Override protected void subscribeActual(
-      Observer<? super ObservableArrayMapMapChangedEvent<K, V>> observer) {
+      Observer<? super ObservableArrayMapOnMapChangedEvent<K, V>> observer) {
     if (!checkMainThread(observer)) {
       return;
     }
@@ -31,12 +31,12 @@ final class ObservableArrayMapObservable<K, V>
     final ObservableMap.OnMapChangedCallback<ObservableArrayMap<K, V>, K, V> onMapChangedCallback;
 
     Listener(final ObservableArrayMap<K, V> observableArrayMap,
-        final Observer<? super ObservableArrayMapMapChangedEvent<K, V>> observer) {
+        final Observer<? super ObservableArrayMapOnMapChangedEvent<K, V>> observer) {
       this.observableArrayMap = observableArrayMap;
       this.onMapChangedCallback =
           new ObservableMap.OnMapChangedCallback<ObservableArrayMap<K, V>, K, V>() {
             @Override public void onMapChanged(ObservableArrayMap<K, V> observableArrayMap, K key) {
-              observer.onNext(ObservableArrayMapMapChangedEvent.create(observableArrayMap, key));
+              observer.onNext(ObservableArrayMapOnMapChangedEvent.create(observableArrayMap, key));
             }
           };
     }

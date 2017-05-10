@@ -27,13 +27,13 @@ public class RxObservableByteTest {
     observableByte.set(value);
     assertEquals(value, o.takeNext().byteValue());
 
-    value++;
+    value = 'a';
     observableByte.set(value);
     assertEquals(value, o.takeNext().byteValue());
 
     o.dispose();
 
-    value++;
+    value = 'b';
     observableByte.set(value);
     o.assertNoMoreEvents();
   }

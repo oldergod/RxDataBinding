@@ -19,8 +19,8 @@ public final class RxObservableArrayMap {
    * observableArrayMap}.
    * Unsubscribe to free this reference.
    */
-  @CheckResult @NonNull //
-  public static <K, V> Observable<ObservableArrayMapMapChangedEvent<K, V>> mapChangedEvents(
+  @CheckResult @NonNull
+  public static <K, V> Observable<ObservableArrayMapOnMapChangedEvent<K, V>> mapChangedEvents(
       @NonNull ObservableArrayMap<K, V> observableArrayMap) {
     checkNotNull(observableArrayMap, "observableArrayMap == null");
     return new ObservableArrayMapObservable<>(observableArrayMap);

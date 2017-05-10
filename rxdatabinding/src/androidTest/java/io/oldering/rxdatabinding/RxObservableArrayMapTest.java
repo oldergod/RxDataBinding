@@ -16,13 +16,13 @@ import static org.junit.Assert.assertNull;
 public class RxObservableArrayMapTest {
   @Rule public final UiThreadTestRule uiThread = new UiThreadTestRule();
 
-  @Test @UiThreadTest public void propertyChangeEvents() {
+  @Test @UiThreadTest public void mapChangedEvents() {
     final ObservableArrayMap<String, String> observableArrayMap = new ObservableArrayMap<>();
     String key = "key";
     String value = "value";
-    ObservableArrayMapMapChangedEvent<String, String> next;
+    ObservableArrayMapOnMapChangedEvent<String, String> next;
 
-    RecordingObserver<ObservableArrayMapMapChangedEvent<String, String>> o =
+    RecordingObserver<ObservableArrayMapOnMapChangedEvent<String, String>> o =
         new RecordingObserver<>();
     RxObservableArrayMap.mapChangedEvents(observableArrayMap).subscribe(o);
     o.assertNoMoreEvents();
