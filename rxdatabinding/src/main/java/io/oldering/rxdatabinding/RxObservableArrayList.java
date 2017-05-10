@@ -3,7 +3,6 @@ package io.oldering.rxdatabinding;
 import android.databinding.ObservableArrayList;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import io.reactivex.Observable;
 
 import static io.oldering.rxdatabinding.internal.Preconditions.checkNotNull;
