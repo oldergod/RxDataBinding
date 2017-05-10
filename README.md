@@ -8,7 +8,8 @@ Usage
 -----
 
 ```java
-RxObservableBoolean.propertyChange(viewModel.someBoolean)
+ObservableBoolean bool = new ObservableBoolean();
+RxObservableBoolean.propertyChange(bool)
   .subscribe(someBoolean -> log.d(TAG, "Do something with someBoolean"));
 ```
 
@@ -32,7 +33,7 @@ Naming conventions of classes and their packages should provide unambiguous info
  but prefixed with `Rx`. For example, `android.databinding.ObservableBoolean` bindings are in
  `io.oldering.rxdatabinding.databinding.RxObservableBoolean`.
 
-Observable factory method names is the plural of the verb (e.g., click --> `clicks()`). The verb
+Observable factory method names is the plural of the verb (e.g., click --> clicks). The verb
  should be in the present tense, regardless of the platform's use (e.g., changed -> change`).
  
 If the listener callback provides more than one parameter of useful data, a factory method overload
