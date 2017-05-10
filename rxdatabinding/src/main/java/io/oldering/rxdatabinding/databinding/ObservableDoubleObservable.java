@@ -31,7 +31,8 @@ final class ObservableDoubleObservable extends Observable<Double> {
       this.observableDouble = observableDouble;
       this.onPropertyChangedCallback =
           new android.databinding.Observable.OnPropertyChangedCallback() {
-            @Override public void onPropertyChanged(android.databinding.Observable observable,
+            @Override
+            public void onPropertyChanged(android.databinding.Observable observable,
                 int ignoredPropertyId) {
               if (!isDisposed()) {
                 ObservableDouble observableDouble = (ObservableDouble) observable;

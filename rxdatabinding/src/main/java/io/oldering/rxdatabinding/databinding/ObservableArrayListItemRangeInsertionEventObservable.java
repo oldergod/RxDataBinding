@@ -16,7 +16,8 @@ final class ObservableArrayListItemRangeInsertionEventObservable<T>
     this.observableArrayList = observableArrayList;
   }
 
-  @Override protected void subscribeActual(
+  @Override
+  protected void subscribeActual(
       Observer<? super ObservableArrayListItemRangeInsertionEvent<T>> observer) {
     if (!checkMainThread(observer)) {
       return;
@@ -38,21 +39,25 @@ final class ObservableArrayListItemRangeInsertionEventObservable<T>
             @Override public void onChanged(ObservableArrayList<T> observableArrayList) {
             }
 
-            @Override public void onItemRangeChanged(ObservableArrayList<T> observableArrayList,
+            @Override
+            public void onItemRangeChanged(ObservableArrayList<T> observableArrayList,
                 int positionStart, int itemCount) {
             }
 
-            @Override public void onItemRangeInserted(ObservableArrayList<T> observableArrayList,
+            @Override
+            public void onItemRangeInserted(ObservableArrayList<T> observableArrayList,
                 int positionStart, int itemCount) {
               observer.onNext(ObservableArrayListItemRangeInsertionEvent.create(observableArrayList,
                   positionStart, itemCount));
             }
 
-            @Override public void onItemRangeMoved(ObservableArrayList<T> observableArrayList,
+            @Override
+            public void onItemRangeMoved(ObservableArrayList<T> observableArrayList,
                 int positionStart, int positionEnd, int itemCount) {
             }
 
-            @Override public void onItemRangeRemoved(ObservableArrayList<T> observableArrayList,
+            @Override
+            public void onItemRangeRemoved(ObservableArrayList<T> observableArrayList,
                 int positionStart, int itemCount) {
             }
           };

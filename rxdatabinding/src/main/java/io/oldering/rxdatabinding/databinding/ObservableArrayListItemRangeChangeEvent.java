@@ -10,10 +10,11 @@ import com.google.auto.value.AutoValue;
         positionStart, itemCount);
   }
 
+  ObservableArrayListItemRangeChangeEvent() {
+  }
+
   /** The observable from which this event occurred. */
   public abstract ObservableArrayList<T> observableArrayList();
-
   public abstract int positionStart();
-
   public abstract int itemCount();
 }

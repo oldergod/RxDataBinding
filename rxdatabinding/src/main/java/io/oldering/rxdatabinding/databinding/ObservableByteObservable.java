@@ -31,7 +31,8 @@ final class ObservableByteObservable extends Observable<Byte> {
       this.observableByte = observableByte;
       this.onPropertyChangedCallback =
           new android.databinding.Observable.OnPropertyChangedCallback() {
-            @Override public void onPropertyChanged(android.databinding.Observable observable,
+            @Override
+            public void onPropertyChanged(android.databinding.Observable observable,
                 int ignoredPropertyId) {
               if (!isDisposed()) {
                 ObservableByte observableByte = (ObservableByte) observable;

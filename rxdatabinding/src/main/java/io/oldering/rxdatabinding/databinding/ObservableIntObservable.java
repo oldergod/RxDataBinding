@@ -31,7 +31,8 @@ final class ObservableIntObservable extends Observable<Integer> {
       this.observableInt = observableInt;
       this.onPropertyChangedCallback =
           new android.databinding.Observable.OnPropertyChangedCallback() {
-            @Override public void onPropertyChanged(android.databinding.Observable observable,
+            @Override
+            public void onPropertyChanged(android.databinding.Observable observable,
                 int ignoredPropertyId) {
               if (!isDisposed()) {
                 ObservableInt observableInt = (ObservableInt) observable;

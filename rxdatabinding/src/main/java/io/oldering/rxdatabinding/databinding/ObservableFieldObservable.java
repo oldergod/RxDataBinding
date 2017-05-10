@@ -31,7 +31,8 @@ final class ObservableFieldObservable<T> extends Observable<T> {
       this.observableField = observableField;
       this.onPropertyChangedCallback =
           new android.databinding.Observable.OnPropertyChangedCallback() {
-            @Override public void onPropertyChanged(android.databinding.Observable observable,
+            @Override
+            public void onPropertyChanged(android.databinding.Observable observable,
                 int ignoredPropertyId) {
               if (!isDisposed()) {
                 ObservableField<T> observableField = convert(observable);

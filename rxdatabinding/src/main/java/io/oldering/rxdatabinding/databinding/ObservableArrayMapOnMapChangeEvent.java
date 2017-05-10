@@ -12,6 +12,5 @@ import com.google.auto.value.AutoValue;
 
   /** The observable from which this event occurred. */
   public abstract ObservableArrayMap<K, V> observableArrayMap();
-
   @Nullable public abstract K key();
 }

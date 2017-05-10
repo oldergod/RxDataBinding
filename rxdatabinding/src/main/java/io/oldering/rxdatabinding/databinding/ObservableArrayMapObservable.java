@@ -16,7 +16,8 @@ final class ObservableArrayMapObservable<K, V>
     this.observableArrayMap = observableArrayMap;
   }
 
-  @Override protected void subscribeActual(
+  @Override
+  protected void subscribeActual(
       Observer<? super ObservableArrayMapOnMapChangeEvent<K, V>> observer) {
     if (!checkMainThread(observer)) {
       return;

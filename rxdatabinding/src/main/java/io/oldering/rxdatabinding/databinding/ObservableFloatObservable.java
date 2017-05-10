@@ -31,7 +31,8 @@ final class ObservableFloatObservable extends Observable<Float> {
       this.observableFloat = observableFloat;
       this.onPropertyChangedCallback =
           new android.databinding.Observable.OnPropertyChangedCallback() {
-            @Override public void onPropertyChanged(android.databinding.Observable observable,
+            @Override
+            public void onPropertyChanged(android.databinding.Observable observable,
                 int ignoredPropertyId) {
               if (!isDisposed()) {
                 ObservableFloat observableFloat = (ObservableFloat) observable;

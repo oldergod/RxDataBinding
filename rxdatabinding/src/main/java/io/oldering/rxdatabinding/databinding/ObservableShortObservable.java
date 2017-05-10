@@ -31,7 +31,8 @@ final class ObservableShortObservable extends Observable<Short> {
       this.observableShort = observableShort;
       this.onPropertyChangedCallback =
           new android.databinding.Observable.OnPropertyChangedCallback() {
-            @Override public void onPropertyChanged(android.databinding.Observable observable,
+            @Override
+            public void onPropertyChanged(android.databinding.Observable observable,
                 int ignoredPropertyId) {
               if (!isDisposed()) {
                 ObservableShort observableShort = (ObservableShort) observable;
