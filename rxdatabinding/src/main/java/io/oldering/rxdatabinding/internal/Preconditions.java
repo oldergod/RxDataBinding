@@ -21,8 +21,11 @@ import io.reactivex.Observer;
 
 import static android.support.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
-@RestrictTo(LIBRARY_GROUP)
-public final class Preconditions {
+@RestrictTo(LIBRARY_GROUP) public final class Preconditions {
+  private Preconditions() {
+    throw new AssertionError("No instances.");
+  }
+
   public static void checkNotNull(Object value, String message) {
     if (value == null) {
       throw new NullPointerException(message);
@@ -36,9 +39,5 @@ public final class Preconditions {
       return false;
     }
     return true;
-  }
-
-  private Preconditions() {
-    throw new AssertionError("No instances.");
   }
 }

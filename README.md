@@ -1,7 +1,19 @@
 RxBinding [WIP]
 =========
 
-RxJava binding APIs for Android'S Data Binding Library.
+RxJava binding APIs for Android'S Data Binding Library. Basically, all the
+`android.databinding.Observable*` that allow some kind of callback. 
+
+Usage
+-----
+
+```java
+// static Observable<Boolean> propertyChange(ObservableBoolean observableBoolean);
+disposables.add(
+  RxObservableBoolean.propertyChange(viewModel.someBoolean)
+      .subscribe(someBoolean -> log.d(TAG, "Do something with someBoolean"))
+  );
+```
 
 Download
 --------
@@ -11,7 +23,32 @@ TBD
 Development
 -----------
 
-TBD
+The code is heavily based on [RxBinding](https://github.com/JakeWharton/RxBinding/), hence the many
+ similarities.
+
+Weak references should not be used. RxJava's subscription graph allows for proper garbage
+ collections of reference-holding objects provided the caller unsubscribes.
+
+Naming conventions of classes and their packages should provide unambiguous information on where
+ functionality can be found. Helpers for platform classes can be found in packages of the same name
+ but prefixed with `io.oldering.rxdatabinding.` instead of `android.` and classes of the same name
+ but prefixed with `Rx`. For example, `android.databinding.ObservableBoolean` bindings are in
+ `io.oldering.rxdatabinding.databinding.RxObservableBoolean`.
+
+Observable factory method names is the plural of the verb (e.g., click --> `clicks()`). The verb
+ should be in the present tense, regardless of the platform's use (e.g., changed -> change`).
+ 
+If the listener callback provides more than one parameter of useful data, a factory method overload
+ named in the singular and suffixed with "Events" is included. This overload emits wrapper objects
+ containing all the additional information about the event. The name of the wrapper object is the 
+ concatenation of the view simple name, the verb (with optional adverb prefix), and "Event". These 
+ classes are in the public API.
+
+// TODO(benoit)
+Events for listeners with multiple methods should share an abstract base class. The naming follows 
+the same rules as a normal event class but without the qualifying prefix. The constructor should be 
+package-private to prevent subclasses other than those defined for the listener methods. This class 
+should be in the public API.
 
 License
 -------
