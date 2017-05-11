@@ -1,4 +1,4 @@
-RxBinding
+RxDataBinding
 =========
 
 RxJava2 binding APIs for Android'S Data Binding Library. Basically, all the

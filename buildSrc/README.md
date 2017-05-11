@@ -1,4 +1,4 @@
-This subproject contains the RxBinding gradle plugin which is used when
+This subproject contains the RxDataBinding gradle plugin which is used when
 building RxDataBinding from source.
 
 In order to test any changes made to the plugin, a full `gradlew build`
