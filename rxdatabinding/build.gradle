@@ -1,35 +1,55 @@
-apply plugin: 'com.android.library'
-
-android {
-  compileSdkVersion 25
-  buildToolsVersion '25.0.2'
-
-  defaultConfig {
-    minSdkVersion 14
-    targetSdkVersion 25
-    versionCode 1
-    versionName '1.0'
-
-    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-    }
-  }
-  dataBinding {
-    enabled true
+buildscript {
+  dependencies {
+    classpath rootProject.ext.androidPlugin
   }
 }
 
-dependencies {
-  compile 'io.reactivex.rxjava2:rxjava:2.0.2'
-  compile 'io.reactivex.rxjava2:rxandroid:2.0.0'
-  compile 'com.android.support:support-annotations:25.3.1'
+apply plugin: 'com.android.library'
+apply plugin: 'rxdatabinding-module'
 
-  provided 'com.jakewharton.auto.value:auto-value-annotations:1.3'
-  annotationProcessor 'com.google.auto.value:auto-value:1.3'
-  
-  androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.2'
+dependencies {
+  compile rootProject.ext.rxJava
+  compile rootProject.ext.rxAndroid
+  compile rootProject.ext.supportAnnotations
+
+  provided rootProject.ext.autoValueAnnotations
+  annotationProcessor rootProject.ext.autoValue
+
+  androidTestCompile rootProject.ext.supportTestEspressoContrib
+}
+
+
+android {
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion rootProject.ext.minSdkVersion
+
+    testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+  }
+
+  dataBinding {
+    enabled true
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+
+  dexOptions {
+    preDexLibraries = !rootProject.ext.ci
+  }
+
+  lintOptions {
+    textReport true
+    textOutput 'stdout'
+  }
+
+  buildTypes {
+    debug {
+      testCoverageEnabled true
+    }
+  }
 }

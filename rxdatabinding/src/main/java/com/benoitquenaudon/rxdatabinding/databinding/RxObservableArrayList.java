@@ -38,7 +38,8 @@ public final class RxObservableArrayList {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull
-  public static <T> Observable<ObservableArrayListItemRangeInsertionEvent<T>> itemRangeInsertionEvents(
+  public static <T> Observable<ObservableArrayListItemRangeInsertionEvent<T>>
+  itemRangeInsertionEvents(
       @NonNull ObservableArrayList<T> observableArrayList) {
     checkNotNull(observableArrayList, "observableArrayList == null");
     return new ObservableArrayListItemRangeInsertionEventObservable<>(observableArrayList);

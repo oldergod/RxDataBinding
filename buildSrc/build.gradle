@@ -1,0 +1,23 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
+  }
+}
+
+apply plugin: 'kotlin'
+
+apply from: rootProject.file('../dependencies.gradle')
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile gradleApi()
+  compile rootProject.ext.androidPlugin
+  compile rootProject.ext.javaParser
+  compile rootProject.ext.kotlinStdlib
+}

@@ -1,23 +1,43 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+subprojects {
+  buildscript {
+    repositories {
+      jcenter()
+    }
+  }
 
-buildscript {
   repositories {
-    jcenter()
+    mavenCentral()
   }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:2.3.1'
 
-    // NOTE: Do not place your application dependencies here; they belong
-    // in the individual module build.gradle files
+  plugins.apply('checkstyle')
+
+  task('checkstyle', type: Checkstyle) {
+    configFile rootProject.file('checkstyle.xml')
+    source 'src/main/java'
+    ignoreFailures false
+    showViolations true
+    include '**/*.java'
+
+    classpath = files()
+  }
+
+  afterEvaluate {
+    tasks.findByName('check').dependsOn('checkstyle')
+
+    // The default 'assemble' task only applies to normal variants. Add test variants as well.
+    android.testVariants.all { variant ->
+      tasks.getByName('assemble').dependsOn variant.assemble
+    }
+
+    tasks.withType(com.android.build.gradle.internal.tasks.AndroidTestTask) { task ->
+      task.doFirst {
+        logging.level = LogLevel.INFO
+      }
+      task.doLast {
+        logging.level = LogLevel.LIFECYCLE
+      }
+    }
   }
 }
 
-allprojects {
-  repositories {
-    jcenter()
-  }
-}
-
-task clean(type: Delete) {
-  delete rootProject.buildDir
-}
+apply from: rootProject.file('dependencies.gradle')
