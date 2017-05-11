@@ -1,5 +1,6 @@
 package com.benoitquenaudon.rxdatabinding.databinding;
 
+import android.databinding.Observable;
 import android.databinding.ObservableBoolean;
 import android.support.test.annotation.UiThreadTest;
 import android.support.test.rule.UiThreadTestRule;
@@ -21,8 +22,14 @@ public class RxObservableBooleanTest {
   @Test @UiThreadTest public void propertyChangeEvents() {
     boolean value = true;
 
+    observableBoolean.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+      @Override public void onPropertyChanged(Observable observable, int propertyId) {
+        // do something
+      }
+    });
+
     RecordingObserver<Boolean> o = new RecordingObserver<>();
-    RxObservableBoolean.propertyChange(observableBoolean).subscribe(o);
+    RxObservableBoolean.propertyChanges(observableBoolean).subscribe(o);
     o.assertNoMoreEvents();
 
     observableBoolean.set(value);

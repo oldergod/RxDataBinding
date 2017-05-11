@@ -21,7 +21,7 @@ public class RxObservableIntTest {
     int value = 1;
 
     RecordingObserver<Integer> o = new RecordingObserver<>();
-    RxObservableInt.propertyChange(observableInt).subscribe(o);
+    RxObservableInt.propertyChanges(observableInt).subscribe(o);
     o.assertNoMoreEvents();
 
     observableInt.set(value);

@@ -24,7 +24,7 @@ public class RxObservableArrayMapTest {
 
     RecordingObserver<ObservableArrayMapOnMapChangeEvent<String, String>> o =
         new RecordingObserver<>();
-    RxObservableArrayMap.mapChange(observableArrayMap).subscribe(o);
+    RxObservableArrayMap.mapChanges(observableArrayMap).subscribe(o);
     o.assertNoMoreEvents();
 
     observableArrayMap.put(key, value);

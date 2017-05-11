@@ -23,7 +23,7 @@ public final class RxObservableByte {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Byte> propertyChange(@NonNull ObservableByte observableByte) {
+  public static Observable<Byte> propertyChanges(@NonNull ObservableByte observableByte) {
     checkNotNull(observableByte, "observableByte == null");
     return new ObservableByteObservable(observableByte);
   }

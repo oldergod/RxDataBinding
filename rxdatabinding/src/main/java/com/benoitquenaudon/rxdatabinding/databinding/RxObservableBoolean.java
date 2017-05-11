@@ -23,7 +23,7 @@ public final class RxObservableBoolean {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Boolean> propertyChange(@NonNull ObservableBoolean observableBoolean) {
+  public static Observable<Boolean> propertyChanges(@NonNull ObservableBoolean observableBoolean) {
     checkNotNull(observableBoolean, "observableBoolean == null");
     return new ObservableBooleanObservable(observableBoolean);
   }

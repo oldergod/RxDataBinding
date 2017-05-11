@@ -21,7 +21,7 @@ public class RxObservableShortTest {
     short value = -1;
 
     RecordingObserver<Short> o = new RecordingObserver<>();
-    RxObservableShort.propertyChange(observableShort).subscribe(o);
+    RxObservableShort.propertyChanges(observableShort).subscribe(o);
     o.assertNoMoreEvents();
 
     observableShort.set(value);

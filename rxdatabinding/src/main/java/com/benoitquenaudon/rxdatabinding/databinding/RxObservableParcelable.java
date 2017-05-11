@@ -25,7 +25,7 @@ public final class RxObservableParcelable<T extends Parcelable> {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static <T extends Parcelable> Observable<? extends T> propertyChange(
+  public static <T extends Parcelable> Observable<? extends T> propertyChanges(
       @NonNull ObservableParcelable<T> observableParcelable) {
     checkNotNull(observableParcelable, "observableParcelable == null");
     return new ObservableFieldObservable<>(observableParcelable);

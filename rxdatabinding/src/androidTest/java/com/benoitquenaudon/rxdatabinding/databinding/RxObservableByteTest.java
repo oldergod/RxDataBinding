@@ -21,7 +21,7 @@ public class RxObservableByteTest {
     byte value = 1;
 
     RecordingObserver<Byte> o = new RecordingObserver<>();
-    RxObservableByte.propertyChange(observableByte).subscribe(o);
+    RxObservableByte.propertyChanges(observableByte).subscribe(o);
     o.assertNoMoreEvents();
 
     observableByte.set(value);

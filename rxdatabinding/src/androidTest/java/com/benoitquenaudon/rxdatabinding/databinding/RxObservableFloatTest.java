@@ -21,7 +21,7 @@ public class RxObservableFloatTest {
     float value = 1F;
 
     RecordingObserver<Float> o = new RecordingObserver<>();
-    RxObservableFloat.propertyChange(observableFloat).subscribe(o);
+    RxObservableFloat.propertyChanges(observableFloat).subscribe(o);
     o.assertNoMoreEvents();
 
     observableFloat.set(value);

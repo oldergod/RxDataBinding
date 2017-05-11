@@ -23,7 +23,7 @@ public final class RxObservableShort {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Short> propertyChange(@NonNull ObservableShort observableShort) {
+  public static Observable<Short> propertyChanges(@NonNull ObservableShort observableShort) {
     checkNotNull(observableShort, "observableShort == null");
     return new ObservableShortObservable(observableShort);
   }

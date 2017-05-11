@@ -22,7 +22,7 @@ public class RxObservableParcelableTest {
     MyParcelable value;
 
     RecordingObserver<MyParcelable> o = new RecordingObserver<>();
-    RxObservableParcelable.propertyChange(observableField).subscribe(o);
+    RxObservableParcelable.propertyChanges(observableField).subscribe(o);
     o.assertNoMoreEvents();
 
     value = new MyParcelable(1, "a");

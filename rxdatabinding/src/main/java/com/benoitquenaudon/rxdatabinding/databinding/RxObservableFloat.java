@@ -23,7 +23,7 @@ public final class RxObservableFloat {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Float> propertyChange(@NonNull ObservableFloat observableFloat) {
+  public static Observable<Float> propertyChanges(@NonNull ObservableFloat observableFloat) {
     checkNotNull(observableFloat, "observableFloat == null");
     return new ObservableFloatObservable(observableFloat);
   }

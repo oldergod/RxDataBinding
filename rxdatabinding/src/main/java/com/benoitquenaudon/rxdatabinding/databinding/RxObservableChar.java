@@ -23,7 +23,7 @@ public final class RxObservableChar {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Character> propertyChange(@NonNull ObservableChar observableChar) {
+  public static Observable<Character> propertyChanges(@NonNull ObservableChar observableChar) {
     checkNotNull(observableChar, "observableChar == null");
     return new ObservableCharObservable(observableChar);
   }

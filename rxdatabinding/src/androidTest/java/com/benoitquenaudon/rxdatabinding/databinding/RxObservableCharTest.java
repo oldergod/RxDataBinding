@@ -21,7 +21,7 @@ public class RxObservableCharTest {
     char value = 'f';
 
     RecordingObserver<Character> o = new RecordingObserver<>();
-    RxObservableChar.propertyChange(observableChar).subscribe(o);
+    RxObservableChar.propertyChanges(observableChar).subscribe(o);
     o.assertNoMoreEvents();
 
     observableChar.set(value);

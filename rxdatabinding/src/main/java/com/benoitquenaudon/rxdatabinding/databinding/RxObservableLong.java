@@ -23,7 +23,7 @@ public final class RxObservableLong {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Long> propertyChange(@NonNull ObservableLong observableLong) {
+  public static Observable<Long> propertyChanges(@NonNull ObservableLong observableLong) {
     checkNotNull(observableLong, "observableLong == null");
     return new ObservableLongObservable(observableLong);
   }

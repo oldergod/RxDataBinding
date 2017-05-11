@@ -23,7 +23,7 @@ public final class RxObservableField<T> {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static <T> Observable<? extends T> propertyChange(
+  public static <T> Observable<? extends T> propertyChanges(
       @NonNull ObservableField<T> observableField) {
     checkNotNull(observableField, "observableField == null");
     return new ObservableFieldObservable<>(observableField);

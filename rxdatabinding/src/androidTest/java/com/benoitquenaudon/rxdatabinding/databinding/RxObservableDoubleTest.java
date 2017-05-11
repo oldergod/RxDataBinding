@@ -21,7 +21,7 @@ public class RxObservableDoubleTest {
     double value = 1;
 
     RecordingObserver<Double> o = new RecordingObserver<>();
-    RxObservableDouble.propertyChange(observableDouble).subscribe(o);
+    RxObservableDouble.propertyChanges(observableDouble).subscribe(o);
     o.assertNoMoreEvents();
 
     observableDouble.set(value);

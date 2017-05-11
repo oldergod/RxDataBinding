@@ -23,7 +23,7 @@ public final class RxObservableInt {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Integer> propertyChange(@NonNull ObservableInt observableInt) {
+  public static Observable<Integer> propertyChanges(@NonNull ObservableInt observableInt) {
     checkNotNull(observableInt, "observableInt == null");
     return new ObservableIntObservable(observableInt);
   }

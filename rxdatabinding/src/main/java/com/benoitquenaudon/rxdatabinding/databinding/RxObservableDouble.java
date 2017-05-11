@@ -23,7 +23,7 @@ public final class RxObservableDouble {
    * Unsubscribe to free this reference.
    */
   @CheckResult @NonNull //
-  public static Observable<Double> propertyChange(@NonNull ObservableDouble observableDouble) {
+  public static Observable<Double> propertyChanges(@NonNull ObservableDouble observableDouble) {
     checkNotNull(observableDouble, "observableDouble == null");
     return new ObservableDoubleObservable(observableDouble);
   }

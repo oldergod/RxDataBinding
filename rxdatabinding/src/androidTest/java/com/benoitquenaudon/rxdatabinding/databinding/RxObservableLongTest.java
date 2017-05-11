@@ -21,7 +21,7 @@ public class RxObservableLongTest {
     long value = 1L;
 
     RecordingObserver<Long> o = new RecordingObserver<>();
-    RxObservableLong.propertyChange(observableLong).subscribe(o);
+    RxObservableLong.propertyChanges(observableLong).subscribe(o);
     o.assertNoMoreEvents();
 
     observableLong.set(value);

@@ -20,7 +20,7 @@ public class RxObservableFieldTest {
     String value = "databinding";
 
     RecordingObserver<String> o = new RecordingObserver<>();
-    RxObservableField.propertyChange(observableField).subscribe(o);
+    RxObservableField.propertyChanges(observableField).subscribe(o);
     o.assertNoMoreEvents();
 
     observableField.set(value);
@@ -42,7 +42,7 @@ public class RxObservableFieldTest {
     Object value;
 
     RecordingObserver<Object> o = new RecordingObserver<>();
-    RxObservableField.propertyChange(observableField).subscribe(o);
+    RxObservableField.propertyChanges(observableField).subscribe(o);
     o.assertNoMoreEvents();
 
     value = new Object();
