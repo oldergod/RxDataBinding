@@ -29,9 +29,9 @@ Weak references should not be used. RxJava's subscription graph allows for prope
 
 Naming conventions of classes and their packages should provide unambiguous information on where
  functionality can be found. Helpers for platform classes can be found in packages of the same name
- but prefixed with `io.oldering.rxdatabinding.` instead of `android.` and classes of the same name
- but prefixed with `Rx`. For example, `android.databinding.ObservableBoolean` bindings are in
- `io.oldering.rxdatabinding.databinding.RxObservableBoolean`.
+ but prefixed with `com.benoitquenaudon.rxdatabinding.` instead of `android.` and classes of the 
+ same name but prefixed with `Rx`. For example, `android.databinding.ObservableBoolean` bindings are
+ in `com.benoitquenaudon.rxdatabinding.databinding.RxObservableBoolean`.
 
 Observable factory method names is the plural of the verb (e.g., click --> clicks). The verb
  should be in the present tense, regardless of the platform's use (e.g., changed -> change`).
