@@ -9,7 +9,7 @@ Usage
 
 ```java
 ObservableBoolean bool = new ObservableBoolean();
-RxObservableBoolean.propertyChange(bool)
+RxObservableBoolean.propertyChanges(bool)
   .subscribe(someBoolean -> log.d(TAG, "Do something with someBoolean"));
 ```
 
