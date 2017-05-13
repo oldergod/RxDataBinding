@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-Version 0.1.0 *(2017-xx-xx)*
+Version 2.0.0 *(2017-05-13)*
 ----------------------------
 
 Initial release.

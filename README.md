@@ -16,7 +16,9 @@ RxObservableBoolean.propertyChanges(bool)
 Download
 --------
 
-TBD
+```groovy
+compile 'com.benoitquenaudon:rxdatabinding:2.0.0'
+```
 
 Development
 -----------
