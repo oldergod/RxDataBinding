@@ -1,8 +1,8 @@
 RxDataBinding
 =========
 
-RxJava2 binding APIs for Android'S Data Binding Library. Basically, all the
-`android.databinding.Observable*` that allow some kind of callback. 
+RxJava2 binding APIs for Android's Data Binding Library. As of `2.0.0`, RxDataBinding provides some 
+ RxJava2 wrapper for all `android.databinding.Observable*` which allow callbacks.
 
 Usage
 -----
@@ -15,6 +15,8 @@ RxObservableBoolean.propertyChanges(bool)
 
 Download
 --------
+
+<a href='http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.benoitquenaudon%22%20a%3A%22rxdatabinding%22'><img src='http://img.shields.io/maven-central/v/com.benoitquenaudon/rxdatabinding.svg'></a>
 
 ```groovy
 compile 'com.benoitquenaudon:rxdatabinding:2.0.0'
